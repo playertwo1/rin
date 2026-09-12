@@ -1,137 +1,104 @@
 # Roadmap do RIN
 
-O roadmap representa a ordem de execução. As fases terminam com demonstração e evidências, não apenas com código escrito.
+O RIN é o aplicativo Android da AI Workstation. O Projeto Vivo é seu primeiro módulo. Este roadmap cobre apenas experiência móvel, persistência local e integração pelo contrato público da plataforma.
 
-## Fase Zero Fundação e redução de risco
+## Fase 0 — Fundação Android
 
-Objetivo: provar integrações críticas antes de construir a experiência completa.
+- Definir package, minSdk, módulos e convenções.
+- Criar scaffold Kotlin/Compose/Material 3.
+- Modelar Project, Checkpoint, Decision e SyncState.
+- Implementar Room e migrações testadas.
+- Definir `WorkstationGateway` conforme `docs/INTEGRATION_CONTRACT.md`.
+- Criar fake determinístico e testes de contrato.
+- Configurar lint, testes, build e CI.
 
-- Criar monorepo com Android, servidor, contratos e simuladores.
-- Escolher Fastify ou Ktor por ADR e spike executável.
-- Definir schemas versionados de projeto, sessão, evento, handoff, aprovação e erro.
-- Criar simuladores de Codex, Claude e Antigravity.
-- Validar Claw Orchestrator no sistema operacional alvo.
-- Configurar lint, testes, builds e CI.
-- Implementar `GET /health` e a primeira conexão Android servidor.
+**Saída:** app compila, persiste um projeto e troca de gateway sem alterar domínio/UI.
 
-Critérios de saída:
+## Fase 1 — Projeto Vivo local
 
-- Repositório compila do zero.
-- Android mostra a saúde do servidor.
-- Simuladores emitem eventos reproduzíveis.
-- Capacidades reais dos adaptadores estão documentadas.
+- Home com projetos, prioridade, última atividade, bloqueio e próximo passo.
+- CRUD de projeto e checkpoint.
+- Histórico e resumo determinístico “Onde parei?”.
+- Estados vazio, carregando, erro e informação obsoleta.
+- Navegação e acessibilidade para uso 100% móvel.
+- Backup/exportação aberta.
 
-## Fase Um Leitura do projeto e Onde parei
+**Saída:** três projetos reais sobrevivem a reinícios e são retomados sem reconstrução manual.
 
-Objetivo: entregar valor sem permitir mutações remotas.
+## Fase 2 — Conexão simulada
 
-- Cadastrar projetos apenas sob raízes autorizadas.
-- Ler branch, HEAD, working tree, diff, commits e arquivos não rastreados.
-- Persistir projetos, eventos e snapshots.
-- Criar telas Projetos, Detalhe, Atividade e Onde parei.
-- Adicionar Room, estados offline e sincronização incremental.
-- Sanitizar caminhos e conteúdo sensível.
-- Testar primeiro em repositório pequeno e depois no projeto 360.
+- Tela de workstation e capacidades.
+- Lista/detalhe de projetos vindos do fake.
+- Cursor de eventos e reconexão.
+- Estado offline e sincronização.
+- Erros estruturados e degradação por capability.
+- Testes de contrato compartilháveis.
 
-Critérios de saída:
+**Saída:** fluxo completo funciona contra servidor simulado reproduzível.
 
-- Reiniciar PC e celular não perde o estado.
-- Alterações Git chegam ao Android em até três segundos na rede local.
-- Nenhum diretório fora das raízes autorizadas é acessível.
-- Onde parei aponta para fatos rastreáveis.
+## Fase 3 — Integração com AI Workstation
 
-## Fase Dois Sessões e observabilidade
+- Pareamento seguro.
+- Health/version/capabilities.
+- Sincronização incremental de projetos e eventos.
+- Resolução explícita de conflitos.
+- Telemetria operacional permitida: online, degradado, recursos e serviços.
+- Notificações de conclusão, falha, limite e decisão.
 
-Objetivo: iniciar e acompanhar um agente com segurança.
+**Dependência:** endpoints e autenticação implementados em `playertwo1/aiworkstation`.
 
-- Implementar `AgentAdapter` e adaptador falso completo.
-- Implementar o primeiro adaptador real.
-- Criar fila serial por projeto e supervisor de processo.
-- Publicar eventos sanitizados em tempo real.
-- Implementar início, pausa quando suportada, cancelamento e timeout.
-- Classificar espera do usuário, limite, autenticação e falhas de processo.
-- Reconciliar processos órfãos após reinício.
+**Saída:** reiniciar PC/celular não perde estado e nenhuma informação stale aparece como atual.
 
-Critérios de saída:
+## Fase 4 — Sessões e Projeto Vivo conectado
 
-- Sessão real inicia pelo Android.
-- Cancelamento encerra o processo e registra resultado.
-- Falha nunca aparece como sucesso.
-- A API não aceita comandos arbitrários.
+- Acompanhar sessão e agente atual.
+- Mostrar eventos sanitizados.
+- Solicitar início/cancelamento por comandos tipados.
+- Diferenciar fila, execução, espera, falha, interrupção e conclusão.
+- Mostrar evidências do estado final.
+- Nunca aceitar comando arbitrário.
 
-## Fase Três Memória estruturada
+**Saída:** uma sessão de teste é acompanhada e cancelada com auditoria correta.
 
-Objetivo: tornar o projeto independente do chat do agente.
+## Fase 5 — Aprovações
 
-- Implementar tarefas, bugs, decisões, testes, artefatos e próximas ações.
-- Exportar `PROJECT_STATE.md`, `DECISIONS.md`, `TASKS.json` e `BUGS.json` de forma atômica.
-- Criar checkpoint e política de atualização da memória.
-- Relacionar afirmações a eventos e evidências.
-- Criar resumo Onde parei determinístico e redação opcional por IA.
-- Testar reconstrução em instalação limpa.
+- Caixa de decisões pendentes.
+- Prévia de ação, alvo, risco, expiração e hash.
+- Aprovação biométrica quando aplicável.
+- Aprovar/rejeitar sem alterar o payload.
+- Histórico móvel derivado da auditoria da plataforma.
+- Revogação de dispositivo e modo somente leitura.
 
-Critérios de saída:
+**Saída:** payload alterado invalida aprovação e ação crítica não ocorre sem decisão válida.
 
-- Estado é reconstruído sem o histórico do chat proprietário.
-- Decisões não confirmadas não entram no registro oficial.
-- Exportações são versionadas, válidas e sem segredos.
+## Fase 6 — AI Shift
 
-## Fase Quatro Passar turno
+- Prévia do Handoff Manifest.
+- Exibir origem, destino, objetivo, branch, diff, testes, bloqueios e próximos passos.
+- Solicitar handoff e acompanhar confirmação do destino.
+- Permitir nova tentativa sem perder a origem.
+- Mostrar incompatibilidades de capability.
 
-Objetivo: transferir trabalho entre agentes de forma auditável.
+**Saída:** troca entre dois adaptadores simulados e depois reais preserva contexto verificável.
 
-- Definir Handoff Manifest v1.
-- Solicitar checkpoint e congelar comandos concorrentes.
-- Capturar Git, objetivo, alterações, testes, decisões, bloqueios e próximos passos.
-- Validar segredos, conflitos, arquivos não rastreados e tamanho.
-- Mostrar uma prévia no Android.
-- Iniciar o destino com prompt canônico.
-- Exigir confirmação de recebimento e compreensão.
-- Preservar a origem quando o destino falhar.
+## Fase 7 — Piloto pessoal
 
-Critérios de saída:
-
-- Pacote possui manifesto e hashes.
-- Destino confirma tarefa, branch, arquivos e próxima ação.
-- Falha permite nova tentativa sem perder o estado anterior.
-- Auditoria identifica origem, destino, aprovação e resultado.
-
-## Fase Cinco Aprovações e endurecimento
-
-Objetivo: permitir ações úteis sem criar um terminal remoto irrestrito.
-
-- Implementar policy engine e aliases de comandos.
-- Adicionar aprovação biométrica, expiração e hash do payload.
-- Aplicar rate limiting e revogação de dispositivos.
-- Redigir tokens, chaves e arquivos `.env` dos logs.
-- Executar threat modeling e testes negativos.
-- Implementar backup criptografado e modo somente leitura.
-
-Critérios de saída:
-
-- Aprovação não funciona para payload diferente.
-- Path traversal e comandos proibidos são bloqueados.
-- Logs móveis não expõem segredos.
-- Leitura continua disponível quando adaptadores falham.
-
-## Fase Seis Piloto pessoal
-
-Objetivo: validar o RIN em uso diário.
-
-- Testar com um projeto pequeno e com o 360.
-- Executar retomadas após 24 e 72 horas.
+- Usar Projeto Vivo com projeto pequeno e com o 360.
+- Medir retomadas após 24 e 72 horas.
 - Medir tempo para entender estado e concluir handoff.
-- Ajustar notificações e fricções.
-- Criar pacote de diagnóstico.
-- Validar atualização segura do servidor e APK.
-- Congelar o MVP após duas semanas estáveis.
+- Ajustar notificações, densidade e fricções.
+- Validar atualização segura e diagnóstico.
+- Congelar MVP após duas semanas estáveis.
 
-## Fase Sete Pós MVP
+## Pós-MVP
 
-- Roteamento por capacidade, disponibilidade e tipo de tarefa.
-- Fallback automático por limite comprovado.
-- Loops Planner Coder Reviewer.
-- Conselho multiagente em worktrees isoladas.
-- Integração com issues, PRs e checks do GitHub.
-- Acesso remoto opcional com modelo zero trust.
-- Multi PC e equipe apenas após novo desenho de autorização.
+- Roteamento manual assistido e, depois, automático quando permitido.
+- Conselho multiagente com visualização de propostas.
+- Knowledge Hub/Obsidian na interface.
+- Multi-PC.
+- Novos módulos do RIN.
+- Acesso remoto zero-trust.
+
+## Fora deste repositório
+
+Runtime de agentes, servidor/API, Git local, Hermes, Obsidian/Vault, policy engine, memória canônica, filas e supervisor de processos são implementados na AI Workstation.
