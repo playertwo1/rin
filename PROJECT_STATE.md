@@ -1,39 +1,39 @@
 # Estado do RIN
 
+Atualizado em: 2026-09-12
+
 ## Situação
 
 - Fase: Zero
-- Estado: documentação inicial concluída
+- Estado: fronteira de produto consolidada
 - Implementação: não iniciada
-- Próximo marco: caminho vertical Android para servidor com dados simulados
-- Risco geral: integrações externas ainda não validadas
+- Produto: aplicativo Android da AI Workstation
+- Primeiro módulo: Projeto Vivo
+- Próximo marco: app local-first com gateway simulado
+- Risco geral: contrato real com a plataforma ainda não validado
 
-## Decisões confirmadas
+## Concluído
 
-- O aplicativo se chama RIN.
-- Android será o controle remoto; agentes serão executados no computador.
-- Git será a fonte da verdade do código.
-- A memória do projeto pertencerá ao RIN.
-- O MVP será single user e local first.
-- Claw Orchestrator ficará atrás de um `AgentAdapter` se for aprovado no spike.
-- O Android não terá acesso a um shell genérico.
-- Handoff só termina depois do aceite do agente de destino.
+- Sobreposição com o repositório AI Workstation identificada.
+- RIN definido como Control Plane Android.
+- Projeto Vivo reposicionado como módulo do RIN.
+- Antigo “RIN Server” incorporado conceitualmente à AI Workstation.
+- Responsabilidades e fontes de verdade separadas.
+- Contrato inicial entre os repositórios documentado.
 
 ## Próximas ações
 
-1. Escolher a stack do servidor por ADR.
-2. Validar Claw, Codex, Claude e Antigravity no ambiente alvo.
-3. Criar monorepo e contratos versionados.
-4. Criar simuladores determinísticos.
-5. Implementar o primeiro caminho vertical.
+1. Definir package, minSdk e estrutura Gradle.
+2. Criar scaffold Android.
+3. Implementar Project e Checkpoint com Room.
+4. Criar `WorkstationGateway` e fake determinístico.
+5. Implementar Home e “Onde parei?” local.
+6. Alinhar schemas v1 com a AI Workstation.
+7. Provar o primeiro caminho vertical sem execução real de agentes.
 
 ## Bloqueios e dúvidas
 
-- Sistema operacional alvo do primeiro servidor ainda precisa ser formalizado.
-- Suporte real e estável do Claw às versões instaladas precisa ser testado.
-- Interface automatizável do Antigravity precisa ser validada.
-- Medição de cotas não deve ser prometida sem fonte oficial confiável.
-
-## Última atualização
-
-11 de setembro de 2026.
+- Transporte em tempo real ainda será escolhido.
+- Pareamento e autenticação do dispositivo precisam de spike conjunto.
+- O Galaxy Book ainda será usado para validar o nó real.
+- Interfaces oficiais de Codex, Claude e Antigravity pertencem aos spikes da AI Workstation.
