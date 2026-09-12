@@ -1,8 +1,8 @@
 # RIN
 
-RIN é um aplicativo Android mobile first para acompanhar projetos desenvolvidos com assistência de IA, preservar a memória técnica e transferir o trabalho entre Codex, Claude e Antigravity.
+RIN é o aplicativo Android da [AI Workstation](https://github.com/playertwo1/aiworkstation). Ele é o painel móvel pessoal de Rafael para acompanhar, decidir e autorizar o trabalho realizado pela plataforma no computador.
 
-O aplicativo responde a cinco perguntas:
+O **Projeto Vivo** é o primeiro módulo do RIN. Ele responde:
 
 - Onde parei?
 - O que mudou?
@@ -10,71 +10,66 @@ O aplicativo responde a cinco perguntas:
 - Qual agente está trabalhando?
 - O que precisa da minha decisão?
 
-## Decisão central
+## Fronteira do produto
 
-O Android funciona como controle remoto seguro. A execução acontece no computador por meio do RIN Server. O Git é a fonte da verdade do código e a memória do projeto pertence ao RIN, não ao histórico proprietário de um agente.
+| Componente | Responsabilidade |
+|---|---|
+| RIN | Aplicativo Android, experiência móvel, cache offline, notificações, decisões e aprovações |
+| Projeto Vivo | Módulo do RIN para projetos, checkpoints, bugs, decisões, próximos passos e handoffs |
+| AI Workstation | Plataforma no Galaxy Book/PC: API, execução, memória canônica, Git/GitHub, agentes, políticas e automações |
 
-## Funções principais
+O RIN **não possui um backend independente**. O antigo conceito “RIN Server” passa a ser a API/nó de execução da AI Workstation.
 
-- Catálogo de projetos e estado do Git.
-- Resumo persistente Onde parei.
-- Tarefas, bugs, testes, decisões e bloqueios.
-- Acompanhamento de sessões em tempo real.
-- AI Shift para passar o turno entre agentes.
-- Aprovações pelo celular para ações sensíveis.
-- Notificações de conclusão, falha e decisão pendente.
+## Funções do RIN
 
-## Arquitetura inicial
+- Home com projetos, agentes, workstation e decisões pendentes.
+- Módulo Projeto Vivo com “Onde parei?” e histórico.
+- Visualização de tarefas, bugs, testes, bloqueios e evidências.
+- Acompanhamento de sessões e eventos.
+- AI Shift para preparar e aprovar handoffs entre agentes.
+- Aprovação ou rejeição de ações sensíveis.
+- Notificações de conclusão, falha, limite e decisão pendente.
+- Operação offline com sincronização posterior.
 
-```text
-Android Kotlin e Compose
-        |
-   HTTPS e WebSocket
-        |
-      RIN Server
-        |-- Git e GitHub
-        |-- Memória do projeto
-        |-- Políticas e aprovações
-        |-- Adaptadores de agentes
-              |-- Codex
-              |-- Claude
-              |-- Antigravity
-              |-- Claw Orchestrator
+## Arquitetura
+
+```mermaid
+flowchart TD
+    A["RIN Android"] --> B["API segura"]
+    B --> C["AI Workstation"]
+    C --> D["Git / GitHub"]
+    C --> E["Memória e políticas"]
+    C --> F["Codex / Claude / Antigravity / Hermes"]
 ```
 
-## Estado do projeto
+Git é a fonte da verdade do código. A AI Workstation mantém o estado operacional e os contratos. O RIN conserva apenas os dados necessários para a experiência móvel e uso offline.
 
-O projeto está na Fase Zero, dedicada a contratos, arquitetura e redução dos riscos de integração. Ainda não há código de produção.
+## Estado atual
+
+Fase 0: fronteiras dos dois repositórios consolidadas. Ainda não há código de produção. O primeiro caminho vertical deve provar RIN Android → API simulada da AI Workstation → lista de projetos.
 
 ## Documentação
 
-- [Roadmap completo](ROADMAP.md)
+- [Roadmap](ROADMAP.md)
 - [Estado atual](PROJECT_STATE.md)
 - [Arquitetura](docs/ARCHITECTURE.md)
 - [Decisões](docs/DECISIONS.md)
-- [Conversa consolidada](docs/CONVERSA_CONSOLIDADA.md)
-- [Especificação completa em DOCX](docs/RIN_Especificacao_e_Roadmap_Inicial.docx)
+- [Contrato com a AI Workstation](docs/INTEGRATION_CONTRACT.md)
+- [Conversa original](docs/CONVERSA_CONSOLIDADA.md)
+- [Especificação original em DOCX](docs/RIN_Especificacao_e_Roadmap_Inicial.docx)
 - [Instruções para agentes](AGENTS.md)
 
-## Primeira entrega executável
+> A conversa e o DOCX preservam a origem do projeto, mas podem conter o termo histórico “RIN Server”. Para implementação, prevalecem README, ROADMAP, ARCHITECTURE, DECISIONS e INTEGRATION_CONTRACT.
 
-O primeiro caminho vertical deverá:
-
-1. Iniciar o RIN Server.
-2. Responder `GET /health`.
-3. Listar projetos simulados em `GET /api/v1/projects`.
-4. Conectar o Android ao servidor.
-5. Exibir a lista simulada no aplicativo.
-6. Validar os contratos em testes automatizados.
-
-## Restrições do MVP
+## Restrições
 
 - Sem terminal genérico no Android.
+- Sem execução de agentes dentro do celular.
 - Sem contorno de cotas ou termos de uso.
-- Sem `force push`, reset destrutivo ou leitura de segredos.
-- Sem progresso inventado; apenas etapas confirmadas.
-- Sem acoplamento direto do domínio ao Claw ou a outro provedor.
+- Sem ação destrutiva sem política e aprovação.
+- Sem progresso inventado; apenas estados confirmados.
+- Sem formatos internos de provedores na camada de UI.
 
 ## Licença
 
-A licença ainda será definida antes da primeira distribuição pública.
+A licença será definida antes da primeira distribuição pública.
