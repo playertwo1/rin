@@ -1,24 +1,28 @@
-# Decisões iniciais do RIN
+# Decisões do RIN
 
 | ID | Decisão | Estado |
 |---|---|---|
 | D001 | O aplicativo se chama RIN | Aceita |
-| D002 | Android é controle remoto e a execução ocorre no PC | Aceita |
-| D003 | Git é a fonte da verdade do código | Aceita |
-| D004 | A memória pertence ao RIN | Aceita |
-| D005 | Claw fica atrás de um AgentAdapter | Provisória |
-| D006 | O MVP é single user e local first | Aceita |
-| D007 | Não existe shell genérico no Android | Aceita |
-| D008 | Handoff exige snapshot e aceite do destino | Aceita |
-| D009 | Cotas só são mostradas quando tecnicamente confiáveis | Aceita |
-| D010 | Progresso vem de etapas confirmadas | Aceita |
-| D011 | Roteamento inteligente e conselho ficam pós MVP | Aceita |
+| D002 | RIN é o aplicativo Android da AI Workstation | Aceita |
+| D003 | Projeto Vivo é o primeiro módulo do RIN, não um produto ou backend separado | Aceita |
+| D004 | Execução ocorre no PC pela AI Workstation | Aceita |
+| D005 | Git/GitHub é a fonte da verdade do código | Aceita |
+| D006 | Memória canônica, sessões, políticas e auditoria pertencem à AI Workstation | Aceita |
+| D007 | RIN mantém cache offline, preferências e rascunhos locais | Aceita |
+| D008 | Integração ocorre por `WorkstationGateway` e contrato versionado | Aceita |
+| D009 | O MVP é single user e local-first | Aceita |
+| D010 | Não existe shell genérico no Android | Aceita |
+| D011 | Handoff só termina após confirmação do destino pela plataforma | Aceita |
+| D012 | Cotas só aparecem quando houver fonte tecnicamente confiável | Aceita |
+| D013 | Progresso vem de etapas confirmadas | Aceita |
+| D014 | Roteamento inteligente e conselho multiagente ficam pós-MVP | Aceita |
 
 ## Decisões ainda abertas
 
-- Fastify ou Ktor para o servidor.
-- SQLite ou PostgreSQL no piloto.
-- Claw Orchestrator ou execução própria para cada adaptador.
+- Package Android e minSdk.
+- REST + WebSocket ou REST + SSE.
+- Modelo de pareamento do dispositivo.
+- Estratégia de conflito entre edição offline e estado canônico.
 - Estratégia de acesso fora da rede local.
-- Política futura de commit e push.
+- Política futura de distribuição do APK.
 - Licença do repositório.
