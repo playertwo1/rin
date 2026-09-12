@@ -1,61 +1,61 @@
-# Arquitetura inicial do RIN
+# Arquitetura do RIN
 
-## Componentes
+## Papel arquitetural
 
-### Android
+O RIN é o **Control Plane Android** da AI Workstation. Ele apresenta estado, permite registrar informações locais e envia intenções autorizadas. Processamento pesado, Git local, agentes, memória canônica, políticas e execução pertencem ao repositório `playertwo1/aiworkstation`.
+
+## Componentes do aplicativo
 
 - Kotlin, Jetpack Compose e Material 3.
 - MVVM com camadas de interface, domínio e dados.
-- Room como cache offline.
-- WorkManager para sincronização e notificações.
-- HTTPS para comandos e WebSocket para eventos.
+- Room para cache offline e dados locais do usuário.
+- WorkManager para sincronização e notificações adiáveis.
+- HTTPS para consultas/comandos tipados.
+- WebSocket ou SSE para eventos, após decisão no contrato.
 - Android Keystore para chaves do dispositivo.
+- `WorkstationGateway` como única fronteira de rede.
 
-### RIN Server
+## Módulos
 
-- API versionada em `/api/v1`.
-- Autenticação por dispositivo pareado.
-- Fila serial por projeto.
-- Supervisor de processos com timeout e cancelamento.
-- Banco transacional e event log append only.
-- Exportação atômica de arquivos de memória.
-- Adaptadores isolados para Git, GitHub e agentes.
-
-### Adaptadores de agentes
-
-```text
-probe
-capabilities
-startSession
-sendInstruction
-streamEvents
-requestCheckpoint
-pause
-cancel
-resume
+```mermaid
+flowchart TD
+    A["RIN App"] --> B["Projeto Vivo"]
+    A --> C["Aprovações"]
+    A --> D["Workstation"]
+    B --> E["Room"]
+    B --> F["WorkstationGateway"]
+    C --> F
+    D --> F
+    F --> G["AI Workstation API"]
 ```
 
-O domínio depende dessa interface, não do Claw ou do formato de uma CLI específica.
+## Responsabilidade dos dados
 
-## Estado canônico
-
-O banco do servidor é a autoridade operacional. Arquivos como `PROJECT_STATE.md`, `DECISIONS.md`, `TASKS.json`, `BUGS.json` e `HANDOFF.md` são exportações legíveis e recuperáveis.
+| Dado | Autoridade |
+|---|---|
+| Preferências e rascunhos locais | RIN/Room |
+| Cache e cursor de sincronização | RIN/Room |
+| Código e commits | Git/GitHub |
+| Sessões, eventos e execução | AI Workstation |
+| Memória canônica do projeto | AI Workstation |
+| Aprovação efetivada e auditoria | AI Workstation |
+| Estado visual offline | RIN, marcado com data e condição de sincronização |
 
 ## Fluxo de comando
 
-1. Android envia comando idempotente assinado.
-2. Servidor autentica dispositivo e valida a política.
-3. Comando entra na fila do projeto.
-4. Adaptador executa e publica eventos.
-5. Cada transição é persistida antes da transmissão.
-6. Android recupera desconexões por cursor de eventos.
-7. Estado final exige evidência verificável.
+1. RIN cria uma intenção tipada com chave de idempotência.
+2. `WorkstationGateway` envia à API da AI Workstation.
+3. A plataforma autentica o dispositivo e avalia a política.
+4. A plataforma persiste a transição antes de responder/publicar o evento.
+5. RIN atualiza o cache e mostra estado confirmado, pendente ou falho.
+6. Após desconexão, o app recupera eventos pelo cursor.
+7. Sucesso exige evidência da plataforma, nunca apenas aceitação em fila.
 
-## Segurança
+## Limites
 
-- Projetos ficam restritos a raízes canônicas autorizadas.
-- Não existe endpoint de shell genérico.
-- Comandos são aliases allowlisted.
-- Ações sensíveis exigem aprovação com expiração.
-- Segredos são removidos antes de persistência, transmissão e notificação.
-- `force push`, reset destrutivo e alteração de segredos ficam bloqueados no MVP.
+- Nenhum endpoint ou tela de shell genérico.
+- Nenhuma integração direta da UI com Codex, Claude, Antigravity ou Hermes.
+- Nenhum token de provedor no app.
+- Nenhuma regra de orquestração duplicada.
+- Nenhuma ação sensível sem prévia compreensível, expiração e confirmação.
+- Nenhuma porcentagem de progresso inferida sem fonte real.
