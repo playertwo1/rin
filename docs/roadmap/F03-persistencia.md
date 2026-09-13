@@ -1,6 +1,6 @@
 # F03 — Modelo local e persistência Room
 
-Estado: NÃO INICIADA. Este arquivo é especificação de trabalho, não relato de execução.
+Estado: CONCLUÍDA em 2026-09-13. Evidências em [F03-T01](../evidence/F03-T01-2026-09-13.md), [F03-T02](../evidence/F03-T02-2026-09-13.md), [F03-T03](../evidence/F03-T03-2026-09-13.md) e [F03-T04](../evidence/F03-T04-2026-09-13.md).
 
 ## Resultado esperado
 
@@ -17,28 +17,28 @@ Separar dados locais e cache da workstation, preservando ambos após reinício.
 
 ### F03-T01 — Definir identidades e invariantes
 
-- [ ] CONCLUÍDA somente após aceite e evidência.
+- [x] CONCLUÍDA com evidência em [docs/evidence/F03-T01-2026-09-13.md](../evidence/F03-T01-2026-09-13.md).
 - Execução: Modelar IDs locais e identidade workstation+remoteId, origem, timestamps e estados. Separar estado de negócio de frescor/sync. Decidir nulabilidade e relações; checkpoint precisa apontar para projeto existente.
 - Entrega: Modelos, schema inicial e decisões justificadas.
 - Aceite verificável: Projetos de duas origens com mesmo remoteId não se confundem; cota e teste ausentes continuam desconhecidos.
 
 ### F03-T02 — Implementar Room e repositórios
 
-- [ ] CONCLUÍDA somente após aceite e evidência.
+- [x] CONCLUÍDA com evidência em [docs/evidence/F03-T02-2026-09-13.md](../evidence/F03-T02-2026-09-13.md).
 - Execução: Criar entities/DAOs e transações para projetos, checkpoints e rascunhos de decisão. Repository expõe observação ao domínio; não expor DAO na UI. Usar schema exportado e banco versionado.
 - Entrega: core/database com schema versionado, repositórios e testes instrumentados.
 - Aceite verificável: Inserir/editar/ler mantém dados e ordenação; falha de transação não deixa registros parciais.
 
 ### F03-T03 — Persistir cache do fake
 
-- [ ] CONCLUÍDA somente após aceite e evidência.
+- [x] CONCLUÍDA com evidência em [docs/evidence/F03-T03-2026-09-13.md](../evidence/F03-T03-2026-09-13.md).
 - Execução: Fazer refresh buscar gateway e gravar na base antes da UI observar. Manter dados locais quando refresh falha. Marcar lastConfirmedAt só após resposta válida e preservada.
 - Entrega: Fluxo gateway → repositório → Room → ViewModel.
 - Aceite verificável: Fechar e reabrir app mantém cache e origem; offline exibe última confirmação sem marcar dado como atual.
 
 ### F03-T04 — Testar reinício e preparar migrações
 
-- [ ] CONCLUÍDA somente após aceite e evidência.
+- [x] CONCLUÍDA com evidência em [docs/evidence/F03-T04-2026-09-13.md](../evidence/F03-T04-2026-09-13.md).
 - Execução: Testar fechar conexão, recriar processo e reler banco. Versionar schema inicial; migração só é testada quando existir versão anterior real/fixture legítima. Proibir fallback destrutivo silencioso e definir como testar futuras alterações.
 - Entrega: Testes de persistência e política de migração em SETUP/ADRs.
 - Aceite verificável: Dados sobrevivem a reinício; não há reset automático em erro. Não alegar teste de migração inexistente.

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "requestId": "550e8400-e29b-41d4-a716-446655440002",
+  "occurredAt": "2026-09-13T10:00:00Z",
+  "data": {
+    "id": "proj-rin-01",
+    "name": "rin",
+    "description": "Control Plane Android para a AI Workstation",
+    "currentBranch": "main",
+    "status": "active",
+    "lastCheckpoint": {
+      "id": "chk-001",
+      "title": "Scaffold F01 validado em emulador",
+      "summary": "Implementação do scaffold Android com Compose e testes unitários aprovados",
+      "createdAt": "2026-09-13T09:30:00Z"
+    },
+    "gitCommitHash": "cd49296",
+    "openDecisionsCount": 7,
+    "updatedAt": "2026-09-13T09:30:00Z"
+  },
+  "error": null
+}

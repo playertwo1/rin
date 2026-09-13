@@ -1,0 +1,40 @@
+# Build and Gradle outputs
+.gradle/
+build/
+app/build/
+**/build/
+
+# Local Android SDK and user configuration (never commit machine-specific paths)
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+# Android Studio / IntelliJ project cache and user settings
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.xml
+.idea/caches/
+.idea/shelf/
+.idea/assetWizardSettings.xml
+
+# Keystore and Signing credentials (CRITICAL GUARDRAIL: never commit private keys)
+*.jks
+*.keystore
+signing.properties
+keystore.properties
+
+# Secrets and environment files
+*.env
+secrets.properties
+*.secret
+google-services.json
+
+# OS and temporary files
+*.tmp
+*.bak
+*~
+Thumbs.db
+*.db
+*.db-wal
+*.db-shm

@@ -5,15 +5,15 @@ Atualizado em: 2026-09-13.
 ## Situação comprovada
 
 - Produto: RIN Android da AI Workstation; primeiro módulo Projeto Vivo.
-- Base inspecionada: commit `3d24216`, com dez arquivos documentais e nenhum código de produção.
-- Entrega atual: planejamento detalhado e guardrails incorporados ao checkout local.
-- Implementação Android: NÃO INICIADA.
-- Fase de execução: F00 — NÃO INICIADA.
-- Tarefa ativa: nenhuma.
-- Próxima tarefa: **F00-T01**, [inventário de preparação](docs/roadmap/F00-preparacao.md).
-- Gates de aplicativo concluídos: nenhum.
-- Build, lint, testes Android e CI: NÃO EXECUTADOS; não existem na base.
-- API real/pareamento/agentes da AI Workstation: NÃO VERIFICADOS nesta preparação.
+- Base inspecionada: commit `cd49296`, repositório limpo e inventariado.
+- Implementação Android: EM ANDAMENTO (F01, F02, F03 e F04 concluídas; F05 em andamento).
+- Fase de execução: F05 — Checkpoints e "Onde parei" local.
+- Última tarefa concluída: **F05-T01**, [criar registro de checkpoint](docs/evidence/F05-T01-2026-09-13.md).
+- Tarefa ativa: Pausado a pedido do usuário para envio ao GitHub e auditoria do Codex.
+- Próxima tarefa: **F05-T02**, [registrar decisões locais](docs/roadmap/F05-onde-parei.md).
+- Gates de aplicativo concluídos: Gate F00, Gate F01 local, Gate F02, Gate F03 e Gate F04 (Scaffold Compose, lint 0 erros, testes unitários, testes de contrato, Room SQLite persistente e isolado, atomicidade com rollback, Home observando repositório, CRUD local de projetos completo, arquivamento e exclusão protegida, testes instrumentados no Pixel 10 Pro XL e persistência de 3 projetos pós-reinício comprovada).
+- Build, lint, testes Android e CI: EXECUTADOS COM SUCESSO LOCALMENTE (CI em nuvem aguardando push).
+- API real/pareamento/agentes da AI Workstation: NÃO VERIFICADOS (desenvolvimento com gateway fake determinístico).
 - Release/assinatura/distribuição/piloto: NÃO INICIADOS.
 
 ## Entregue na preparação documental

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "requestId": "550e8400-e29b-41d4-a716-446655440099",
+  "occurredAt": "2026-09-13T10:00:00Z",
+  "data": null,
+  "error": {
+    "code": "PROJECT_NOT_FOUND",
+    "category": "not_found",
+    "message": "O projeto solicitado não foi localizado na AI Workstation.",
+    "details": "ID proj-inexistente-99 não consta na base canônica de projetos autorizados."
+  }
+}

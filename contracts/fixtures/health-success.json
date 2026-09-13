@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "requestId": "550e8400-e29b-41d4-a716-446655440000",
+  "occurredAt": "2026-09-13T10:00:00Z",
+  "data": {
+    "status": "healthy",
+    "version": "0.1.0-alpha",
+    "workstationName": "AI-Workstation-LAN",
+    "capabilities": [
+      "projects.read",
+      "projects.write",
+      "events.stream",
+      "sessions.read"
+    ]
+  },
+  "error": null
+}

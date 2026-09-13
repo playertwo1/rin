@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "requestId": "550e8400-e29b-41d4-a716-446655440001",
+  "occurredAt": "2026-09-13T10:00:00Z",
+  "data": [
+    {
+      "id": "proj-rin-01",
+      "name": "rin",
+      "description": "Control Plane Android para a AI Workstation",
+      "currentBranch": "main",
+      "status": "active",
+      "updatedAt": "2026-09-13T09:30:00Z"
+    },
+    {
+      "id": "proj-aiworkstation-02",
+      "name": "aiworkstation",
+      "description": "Plataforma central de orquestração de agentes e execução local",
+      "currentBranch": "develop",
+      "status": "idle",
+      "updatedAt": "2026-09-13T08:15:00Z"
+    },
+    {
+      "id": "proj-hermes-03",
+      "name": "hermes-agent",
+      "description": "Adaptador de mensageria e execução autônoma",
+      "currentBranch": "main",
+      "status": "running",
+      "updatedAt": "2026-09-13T07:45:00Z"
+    }
+  ],
+  "error": null
+}

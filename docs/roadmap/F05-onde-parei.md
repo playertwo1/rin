@@ -1,6 +1,6 @@
 # F05 — Checkpoints, decisões locais e Onde parei
 
-Estado: NÃO INICIADA. Este arquivo é especificação de trabalho, não relato de execução.
+Estado: EM ANDAMENTO. Este arquivo é especificação de trabalho, não relato de execução.
 
 ## Resultado esperado
 
@@ -17,7 +17,7 @@ Retomar o projeto por fatos persistidos, sem depender do histórico de chat.
 
 ### F05-T01 — Criar registro de checkpoint
 
-- [ ] CONCLUÍDA somente após aceite e evidência.
+- [x] CONCLUÍDA com evidência em [docs/evidence/F05-T01-2026-09-13.md](../evidence/F05-T01-2026-09-13.md).
 - Execução: Formulário com resumo factual, próximo passo, bloqueios e referências opcionais. Persistir e ordenar com IDs/timestamps estáveis. Corrigir registro com histórico claro; não apresentar relato manual como teste executado.
 - Entrega: feature/checkpoints e telas de histórico.
 - Aceite verificável: Criar, editar e reabrir checkpoint preserva conteúdo; estado vazio explica como registrar o primeiro.

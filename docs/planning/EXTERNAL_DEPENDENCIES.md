@@ -26,8 +26,8 @@ aprovações, manifestos e bootstrap. Registrar contrato antes de criar cliente 
 
 | ID | Decisão | Responsável/papel | Prazo técnico | Condição |
 |---|---|---|---|---|
-| OPEN-01 | Package, minSdk, targetSdk, toolchain e aparelho alvo | Implementador; Rafael fornece aparelho se necessário | F00 | Compatibilidade real; valores e fontes em ADR |
-| OPEN-02 | Pilha HTTP e injeção de dependência | Implementador | F00/F02 | Reusar stack, explicar necessidade e fixar versões |
+| OPEN-01 | Package, minSdk, targetSdk, toolchain e aparelho alvo | Implementador | F00 | **RESOLVIDA** na F00 via [ADR 0002](../adr/0002-identidade-e-toolchain.md) |
+| OPEN-02 | Pilha HTTP e injeção de dependência | Implementador | F00/F02 | **RESOLVIDA** na F00 via [ADR 0002](../adr/0002-identidade-e-toolchain.md) |
 | OPEN-03 | REST + SSE/WebSocket/polling e comportamento em background | Engenharia RIN + plataforma | F07/F09 | Replay confiável e limites Android demonstrados |
 | OPEN-04 | Pareamento, bootstrap TLS e ciclo da credencial | Engenharia RIN + plataforma | F08 | Protocolo verificável, sem atalho trust-all |
 | OPEN-05 | Conflito, vínculo e versão das escritas | Engenharia RIN + plataforma | F10 | Base/local/remoto preservados, sem overwrite silencioso |

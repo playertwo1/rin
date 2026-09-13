@@ -17,11 +17,13 @@
 | D013 | Progresso vem de etapas confirmadas | Aceita |
 | D014 | Roteamento inteligente e conselho multiagente ficam pós-MVP | Aceita |
 | D015 | Execução F00–F18 com gates e evidências; AGENTS curto e guardrails importados | Adotada para este plano; [ADR 0001](adr/0001-plano-android-ate-1-0.md) |
+| D016 | Identidade `com.playertwo1.rin`, minSdk 26, target/compileSdk 35 e toolchain fixada | Aceita; [ADR 0002](adr/0002-identidade-e-toolchain.md) |
+| D017 | Stack OkHttp + Retrofit + Kotlinx Serialization, DI manual inicial e módulo único `:app` | Aceita; [ADR 0002](adr/0002-identidade-e-toolchain.md) |
+| D018 | Modelo de identidade local desacoplado de remoteId; isolamento por (workstationId, remoteId) com Room SQLite | Aceita; [ADR 0003](adr/0003-modelo-local-e-persistencia.md) |
 
 ## Decisões ainda abertas
 
-- Package Android e minSdk.
-- REST + WebSocket ou REST + SSE.
+- REST + WebSocket ou REST + SSE (transporte de eventos da LAN).
 - Modelo de pareamento do dispositivo.
 - Estratégia de conflito entre edição offline e estado canônico.
 - Estratégia de acesso fora da rede local.
