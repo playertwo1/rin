@@ -46,7 +46,9 @@ Git é a fonte da verdade do código. A AI Workstation mantém o estado operacio
 
 ## Estado atual
 
-Fase 0: fronteiras dos dois repositórios consolidadas. Ainda não há código de produção. O primeiro caminho vertical deve provar RIN Android → API simulada da AI Workstation → lista de projetos.
+Implementação não iniciada. O plano até 1.0 está dividido em **19 fases e 76 tarefas**, com critérios de aceite e evidências. O primeiro caminho vertical deve provar RIN Android → API simulada da AI Workstation → lista de projetos. Integração real e piloto são gates separados.
+
+Para iniciar no Antigravity, use [START_HERE](docs/execution/START_HERE.md). A primeira tarefa é **F00-T01**. Os guardrails do Google Drive estão incorporados em [AI_PROJECT_GUARDRAILS](AI_PROJECT_GUARDRAILS/README.md).
 
 ## Documentação
 
@@ -58,6 +60,13 @@ Fase 0: fronteiras dos dois repositórios consolidadas. Ainda não há código d
 - [Conversa original](docs/CONVERSA_CONSOLIDADA.md)
 - [Especificação original em DOCX](docs/RIN_Especificacao_e_Roadmap_Inicial.docx)
 - [Instruções para agentes](AGENTS.md)
+- [Protocolo de execução](docs/execution/PROTOCOL.md)
+- [Guia técnico e estrutura prevista](docs/planning/IMPLEMENTATION.md)
+- [Requisitos e dependências](docs/planning/REQUIREMENTS.md)
+- [Dependências da AI Workstation](docs/planning/EXTERNAL_DEPENDENCIES.md)
+- [Qualidade e evidência](docs/quality/VALIDATION.md)
+- [Critérios da versão 1.0](docs/quality/RELEASE_1_0.md)
+- [Origem e divergências da documentação](docs/planning/SOURCES.md)
 
 > A conversa e o DOCX preservam a origem do projeto, mas podem conter o termo histórico “RIN Server”. Para implementação, prevalecem README, ROADMAP, ARCHITECTURE, DECISIONS e INTEGRATION_CONTRACT.
 

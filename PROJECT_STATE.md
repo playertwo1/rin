@@ -1,39 +1,53 @@
 # Estado do RIN
 
-Atualizado em: 2026-09-12
+Atualizado em: 2026-09-13.
 
-## Situação
+## Situação comprovada
 
-- Fase: Zero
-- Estado: fronteira de produto consolidada
-- Implementação: não iniciada
-- Produto: aplicativo Android da AI Workstation
-- Primeiro módulo: Projeto Vivo
-- Próximo marco: app local-first com gateway simulado
-- Risco geral: contrato real com a plataforma ainda não validado
+- Produto: RIN Android da AI Workstation; primeiro módulo Projeto Vivo.
+- Base inspecionada: commit `3d24216`, com dez arquivos documentais e nenhum código de produção.
+- Entrega atual: planejamento detalhado e guardrails incorporados ao checkout local.
+- Implementação Android: NÃO INICIADA.
+- Fase de execução: F00 — NÃO INICIADA.
+- Tarefa ativa: nenhuma.
+- Próxima tarefa: **F00-T01**, [inventário de preparação](docs/roadmap/F00-preparacao.md).
+- Gates de aplicativo concluídos: nenhum.
+- Build, lint, testes Android e CI: NÃO EXECUTADOS; não existem na base.
+- API real/pareamento/agentes da AI Workstation: NÃO VERIFICADOS nesta preparação.
+- Release/assinatura/distribuição/piloto: NÃO INICIADOS.
 
-## Concluído
+## Entregue na preparação documental
 
-- Sobreposição com o repositório AI Workstation identificada.
-- RIN definido como Control Plane Android.
-- Projeto Vivo reposicionado como módulo do RIN.
-- Antigo “RIN Server” incorporado conceitualmente à AI Workstation.
-- Responsabilidades e fontes de verdade separadas.
-- Contrato inicial entre os repositórios documentado.
+- Leitura dos nove Markdown e do texto integral do DOCX da base.
+- Separação explícita entre histórico “RIN Server” e fronteira Android vigente.
+- Roadmap de 19 fases e 76 tarefas até 1.0, com dependências, entregas e gates.
+- Cópia dos três arquivos da pasta AI_PROJECT_GUARDRAILS do Drive e registro de origem.
+- AGENTS curto, protocolo do Antigravity, matriz de requisitos, validação e critério de release.
+- Registro de revisão documental em [evidência de preparação](docs/evidence/DOC-2026-09-13.md).
+- Dez [mockups de telas](docs/design/mockups-v1/README.md) gerados como proposta visual, com dados de exemplo; implementação e aprovação do design ainda pendentes.
 
-## Próximas ações
+Isto não conclui F00: o Antigravity ainda precisa inspecionar seu ambiente e resolver a
+toolchain/identidade Android. Os itens acima são documentos produzidos, não funcionalidades implementadas.
 
-1. Definir package, minSdk e estrutura Gradle.
-2. Criar scaffold Android.
-3. Implementar Project e Checkpoint com Room.
-4. Criar `WorkstationGateway` e fake determinístico.
-5. Implementar Home e “Onde parei?” local.
-6. Alinhar schemas v1 com a AI Workstation.
-7. Provar o primeiro caminho vertical sem execução real de agentes.
+## Próximo ciclo
 
-## Bloqueios e dúvidas
+Skills de apoio instaladas em `.agents/skills`: visual-plan, visual-recap,
+visualize-repo e agent-watchdog. Instalação local ao projeto; não significa monitor ativo.
 
-- Transporte em tempo real ainda será escolhido.
-- Pareamento e autenticação do dispositivo precisam de spike conjunto.
-- O Galaxy Book ainda será usado para validar o nó real.
-- Interfaces oficiais de Codex, Claude e Antigravity pertencem aos spikes da AI Workstation.
+Ler [START_HERE](docs/execution/START_HERE.md), cumprir F00-T01–T04 e registrar resultados reais.
+Somente depois criar o scaffold F01. Atualizar este arquivo com ID, estado, evidência e próxima ação.
+
+## Riscos e dependências
+
+- Package, SDKs e toolchain: OPEN-01, a decidir em F00.
+- Contrato existente é rascunho v0.1; não comprova API operante.
+- Pareamento, transporte, conflito, comandos e handoff dependem de entregas externas.
+- Custódia da chave de assinatura e distribuição interna precisam de definição antes do piloto.
+- Licença permanece aberta e impede distribuição pública sem decisão.
+- Detalhes em [EXTERNAL_DEPENDENCIES](docs/planning/EXTERNAL_DEPENDENCIES.md).
+
+## Como manter o estado
+
+Após cada entrega, registrar ID da tarefa, status, qualificador de evidência (fake/real),
+caminho de relatório, bloqueio concreto e próxima tarefa elegível.
+Não sobrescrever falha com “concluído” por causa de documentação, mock ou teste não executado.

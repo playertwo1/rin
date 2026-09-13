@@ -59,3 +59,10 @@ flowchart TD
 - Nenhuma regra de orquestração duplicada.
 - Nenhuma ação sensível sem prévia compreensível, expiração e confirmação.
 - Nenhuma porcentagem de progresso inferida sem fonte real.
+
+## Guia de implementação e evolução
+
+O detalhamento de módulos, autoridade local/remota, transações de sync, outbox,
+segurança e isolamento de fakes está em [IMPLEMENTATION](planning/IMPLEMENTATION.md).
+Esses componentes são previstos; ainda não existem na base documental.
+As fases e provas estão em [ROADMAP](../ROADMAP.md), com início em F00.

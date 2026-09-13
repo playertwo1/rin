@@ -3,6 +3,11 @@
 Status: rascunho v0.1  
 Compatibilidade pretendida: `/api/v1`
 
+Este documento é um rascunho, não evidência de API implementada. O plano cria um
+contrato candidato e fake em F02; a implementação real depende de schema/revisão
+da plataforma e testes de consumidor compartilhados. Nenhuma rota histórica do
+DOCX deve ser presumida disponível. Veja as [dependências externas](planning/EXTERNAL_DEPENDENCIES.md).
+
 ## Princípio
 
 O RIN envia **intenções tipadas** e apresenta estados. A AI Workstation executa, persiste e audita. Nenhum lado depende de classes internas do outro.
@@ -68,3 +73,18 @@ Mudanças aditivas podem manter a mesma versão. Remoção, renomeação ou alte
 ## Critério do primeiro contrato executável
 
 O fake e a implementação real devem passar os mesmos testes de contrato para `health`, lista/detalhe de projetos, cursor de eventos e erro estruturado.
+
+## Lacunas a fechar antes de cliente real
+
+- Pareamento, bootstrap TLS, renovação, expiração, escopos e revogação.
+- Paginação, cursor opaco, retenção, ordenação, duplicatas e recuperação de lacunas.
+- Semântica de versão de entidade, conflitos e vínculo de projeto local/remoto.
+- Tipos exatos de comandos, status/consulta por commandId e reconciliação após timeout.
+- Consulta de sessões, aprovações e handoffs, manifesto e confirmação do destino.
+- Categorias de erro, compatibilidade de schemas e capabilities efetivamente publicadas.
+- Referências sanitizadas para Git, tarefas, bugs, testes, decisões e artefatos.
+
+Escritas sensíveis não entram em replay offline automático. Aprovação exige prévia
+atual; sessão/handoff/cancelamento precisam de reconciliação quando a resposta se perde.
+Essas regras do consumidor precisam ser verificadas contra o contrato publicado;
+não representam novas rotas ou capacidades já disponíveis na plataforma.

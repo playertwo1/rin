@@ -16,6 +16,7 @@
 | D012 | Cotas só aparecem quando houver fonte tecnicamente confiável | Aceita |
 | D013 | Progresso vem de etapas confirmadas | Aceita |
 | D014 | Roteamento inteligente e conselho multiagente ficam pós-MVP | Aceita |
+| D015 | Execução F00–F18 com gates e evidências; AGENTS curto e guardrails importados | Adotada para este plano; [ADR 0001](adr/0001-plano-android-ate-1-0.md) |
 
 ## Decisões ainda abertas
 
@@ -26,3 +27,7 @@
 - Estratégia de acesso fora da rede local.
 - Política futura de distribuição do APK.
 - Licença do repositório.
+
+Responsáveis por papel, fase de fechamento e prova necessária estão em
+[EXTERNAL_DEPENDENCIES](planning/EXTERNAL_DEPENDENCIES.md). Este plano não fecha
+SDK, pareamento, transporte ou conflito por suposição.

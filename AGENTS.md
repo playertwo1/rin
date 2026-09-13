@@ -1,58 +1,45 @@
-# Instruções para agentes
+# Instruções para agentes — RIN
 
-## Missão
+## Missão e leitura obrigatória
 
-Construir o **RIN**, aplicativo Android da AI Workstation, em ciclos pequenos e verificáveis. O **Projeto Vivo** é o primeiro módulo do app.
+Construir o RIN Android até 1.0, executando uma tarefa verificável por vez.
+Projeto Vivo é o primeiro módulo. O roadmap é planejamento, não prova de execução.
 
-## Fonte da verdade
+1. Leia [WATCHDOG](AI_PROJECT_GUARDRAILS/WATCHDOG.md) antes de alterar qualquer arquivo.
+2. Leia [README](README.md), [estado atual](PROJECT_STATE.md) e [roadmap](ROADMAP.md).
+3. Leia [arquitetura](docs/ARCHITECTURE.md), [decisões](docs/DECISIONS.md) e [contrato](docs/INTEGRATION_CONTRACT.md).
+4. Leia o [protocolo de execução](docs/execution/PROTOCOL.md), a fase ativa e as referências indicadas nela.
+5. Antes de entregar, aplique [AUDIT](AI_PROJECT_GUARDRAILS/AUDIT.md) e registre o resultado com evidências.
 
-- Escopo Android e UX: este repositório.
-- API, execução, agentes, memória canônica e políticas: `playertwo1/aiworkstation`.
-- Código e commits: Git.
-- Estado resumido deste app: `PROJECT_STATE.md`.
-- Decisões: `docs/DECISIONS.md`.
-- Integração entre repositórios: `docs/INTEGRATION_CONTRACT.md`.
-- Sequência: `ROADMAP.md`.
+## Limites obrigatórios
 
-## Regras obrigatórias
+1. Este repositório contém o app; API, Git local, agentes, memória canônica, políticas e auditoria operacional pertencem à AI Workstation.
+2. Integre somente por `WorkstationGateway` e contrato versionado. Comece com fake determinístico explicitamente identificado.
+3. Não crie backend, runtime, shell genérico, vault, orquestrador ou integração direta com CLIs de agentes.
+4. Nunca invente endpoint, capability, versão, resultado de teste, evidência, percentual ou trabalho concluído.
+5. Diferencie PLANEJADO, IMPLEMENTADO, VALIDADO NO FAKE e VALIDADO NO REAL. Aceitação em fila não é sucesso.
+6. Não marque tarefa CONCLUÍDA sem cumprir todos os critérios e registrar a validação. Ausência de ambiente significa NÃO EXECUTADO.
+7. Preserve dados e alterações do usuário; não esconda falhas, remova testes ou enfraqueça segurança para obter verde.
+8. Não armazene tokens, cookies, chaves privadas, `.env` ou transcrições sensíveis no Git/APK/logs.
+9. Mantenha offline e estados local, pendente, sincronizado, obsoleto, conflito e falha distinguíveis.
+10. Execute apenas a tarefa ativa e seus pré-requisitos. Melhorias extras vão ao backlog; dependência externa ausente vai ao registro de bloqueios.
 
-1. Ler README, ROADMAP, PROJECT_STATE, ARCHITECTURE, DECISIONS e INTEGRATION_CONTRACT antes de implementar.
-2. Não criar backend, runtime de agentes, orquestrador, vault ou integração direta com CLIs neste repositório.
-3. Consumir a AI Workstation somente por contratos versionados e por um gateway substituível.
-4. Começar com `FakeWorkstationGateway`; integração real entra após contrato estável.
-5. Atualizar `PROJECT_STATE.md` e `CHANGELOG.md` em toda entrega relevante.
-6. Registrar decisões arquiteturais em `docs/adr/`.
-7. Não armazenar tokens, cookies, credenciais, `.env` ou transcrições sensíveis.
-8. Não oferecer shell genérico nem comandos arbitrários.
-9. Não declarar sucesso sem evidência confirmada pela plataforma.
-10. Preservar operação offline e distinguir dado local, sincronizado, obsoleto e em conflito.
+## Fontes e conflitos
 
-## Estrutura pretendida
+Pedido explícito de Rafael prevalece dentro das regras do ambiente. Depois, siga este arquivo,
+os guardrails e as decisões vigentes. O DOCX e a conversa são históricos; consulte
+[origem e divergências](docs/planning/SOURCES.md). Não implemente o antigo “RIN Server”.
+O contrato atual é rascunho: exemplos novos não provam que a plataforma os suporta.
 
-```text
-app/
-core/model/
-core/database/
-core/network/
-core/ui/
-feature/projects/
-feature/projectdetail/
-feature/checkpoints/
-feature/approvals/
-feature/workstation/
-docs/adr/
-```
+## Fechamento de cada tarefa
 
-## Primeira missão
+Revise todo o diff, valide conforme [matriz de qualidade](docs/quality/VALIDATION.md),
+registre evidência pelo [modelo de entrega](docs/execution/DELIVERY_TEMPLATE.md),
+atualize PROJECT_STATE e CHANGELOG; decisões arquiteturais vão a `docs/adr/`.
+Informe arquivos alterados, comandos realmente executados, resultados e próximo ID.
+Não faça push, publicação ou release apenas porque uma etapa os menciona; siga a autorização da tarefa.
 
-1. Criar o scaffold Kotlin/Compose/Material 3.
-2. Implementar Project e Checkpoint em Room.
-3. Criar Home e detalhe do Projeto Vivo com dados locais.
-4. Definir `WorkstationGateway` a partir do contrato publicado.
-5. Implementar gateway falso determinístico.
-6. Exibir estado da workstation e lista simulada de projetos.
-7. Configurar lint, testes, build e CI.
+## Comece aqui
 
-## Critério do primeiro ciclo
-
-O app compila do zero, mantém projetos/checkpoints após reinício, mostra “Onde parei?” determinístico e troca entre gateway falso e implementação futura sem alterar a UI ou o domínio.
+Próxima tarefa inicial: **F00-T01** em [F00](docs/roadmap/F00-preparacao.md).
+Use [START_HERE](docs/execution/START_HERE.md) para iniciar ou retomar no Antigravity.
