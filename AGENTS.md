@@ -6,7 +6,7 @@ Construir o RIN Android até 1.0, executando uma tarefa verificável por vez.
 Projeto Vivo é o primeiro módulo. O roadmap é planejamento, não prova de execução.
 
 1. Leia [WATCHDOG](AI_PROJECT_GUARDRAILS/WATCHDOG.md) antes de alterar qualquer arquivo.
-2. Leia [README](README.md), [estado atual](PROJECT_STATE.md) e [roadmap](ROADMAP.md).
+2. Leia [README](README.md), [estado atual](STATE.md) e [roadmap](ROADMAP.md).
 3. Leia [arquitetura](docs/ARCHITECTURE.md), [decisões](docs/DECISIONS.md) e [contrato](docs/INTEGRATION_CONTRACT.md).
 4. Leia o [protocolo de execução](docs/execution/PROTOCOL.md), a fase ativa e as referências indicadas nela.
 5. Antes de entregar, aplique [AUDIT](AI_PROJECT_GUARDRAILS/AUDIT.md) e registre o resultado com evidências.
@@ -35,11 +35,12 @@ O contrato atual é rascunho: exemplos novos não provam que a plataforma os sup
 
 Revise todo o diff, valide conforme [matriz de qualidade](docs/quality/VALIDATION.md),
 registre evidência pelo [modelo de entrega](docs/execution/DELIVERY_TEMPLATE.md),
-atualize PROJECT_STATE e CHANGELOG; decisões arquiteturais vão a `docs/adr/`.
+atualize STATE e CHANGELOG; decisões arquiteturais vão a `docs/adr/`.
 Informe arquivos alterados, comandos realmente executados, resultados e próximo ID.
 Não faça push, publicação ou release apenas porque uma etapa os menciona; siga a autorização da tarefa.
 
 ## Comece aqui
 
-Próxima tarefa inicial: **F00-T01** em [F00](docs/roadmap/F00-preparacao.md).
+Próxima tarefa: a indicada em [STATE](STATE.md) (F00-T01 foi a tarefa inicial). Visão: [PROJECT](PROJECT.md).
+Verificar: `./gradlew lintDebug testDebugUnitTest assembleDebug`. `CLAUDE.md` só importa este arquivo. Nunca force push nem reescreva histórico.
 Use [START_HERE](docs/execution/START_HERE.md) para iniciar ou retomar no Antigravity.

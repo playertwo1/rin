@@ -46,14 +46,34 @@ Git é a fonte da verdade do código. A AI Workstation mantém o estado operacio
 
 ## Estado atual
 
-Implementação não iniciada. O plano até 1.0 está dividido em **19 fases e 76 tarefas**, com critérios de aceite e evidências. O primeiro caminho vertical deve provar RIN Android → API simulada da AI Workstation → lista de projetos. Integração real e piloto são gates separados.
+Implementação em andamento: F00–F04 concluídas e F05 em andamento (2026-09-13), com gateway fake determinístico. O plano até 1.0 está dividido em **19 fases e 76 tarefas**, com critérios de aceite e evidências. Integração real e piloto são gates separados. Onde paramos e próxima ação: [STATE](STATE.md).
 
-Para iniciar no Antigravity, use [START_HERE](docs/execution/START_HERE.md). A primeira tarefa é **F00-T01**. Os guardrails do Google Drive estão incorporados em [AI_PROJECT_GUARDRAILS](AI_PROJECT_GUARDRAILS/README.md).
+## Como rodar
+
+Pré-requisitos e configuração em [SETUP](docs/development/SETUP.md) (JDK 17, Android SDK).
+
+```bash
+./gradlew assembleDebug
+```
+
+## Como verificar
+
+Os mesmos passos do CI (`.github/workflows/android-ci.yml`):
+
+```bash
+./gradlew lintDebug testDebugUnitTest assembleDebug
+```
+
+Verificador da documentação (PowerShell 7): `pwsh docs/quality/CHECK_DOCUMENTATION.ps1`.
+
+Para iniciar no Antigravity, use [START_HERE](docs/execution/START_HERE.md). A próxima tarefa está em [STATE](STATE.md). Os guardrails do Google Drive estão incorporados em [AI_PROJECT_GUARDRAILS](AI_PROJECT_GUARDRAILS/README.md).
 
 ## Documentação
 
 - [Roadmap](ROADMAP.md)
-- [Estado atual](PROJECT_STATE.md)
+- [Estado atual](STATE.md)
+- [Contrato de visão](PROJECT.md)
+- [Histórico de mudanças](CHANGELOG.md)
 - [Arquitetura](docs/ARCHITECTURE.md)
 - [Decisões](docs/DECISIONS.md)
 - [Contrato com a AI Workstation](docs/INTEGRATION_CONTRACT.md)

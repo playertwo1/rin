@@ -11,7 +11,7 @@ do DOCX nem alteração do arquivo histórico.
 |---|---|
 | [README](../../README.md) | Produto, Android, Projeto Vivo e fronteira com a plataforma |
 | [AGENTS](../../AGENTS.md) | Limites e fluxo de trabalho; revisado nesta preparação |
-| [PROJECT_STATE](../../PROJECT_STATE.md) | Base sem implementação, riscos e próximos passos |
+| [STATE](../../STATE.md) | Base sem implementação, riscos e próximos passos |
 | [ROADMAP](../../ROADMAP.md) | Oito fases originais desdobradas em F00–F18 |
 | [CHANGELOG](../../CHANGELOG.md) | Evolução documental 0.1.0 → 0.2.0 |
 | [ARCHITECTURE](../ARCHITECTURE.md) | Kotlin/Compose, Room e gateway único |

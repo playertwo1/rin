@@ -141,4 +141,4 @@ A partir da fase **F03**, o RIN utiliza Room SQLite para persistência offline-f
 
 ## 8. Próxima Etapa no Roadmap
 
-Acompanhe o progresso das tarefas no [ROADMAP](../../ROADMAP.md) e no [PROJECT_STATE](../../PROJECT_STATE.md). Cada fase cumprida deve ser formalmente registrada em `docs/evidence/` conforme o protocolo de execução.
+Acompanhe o progresso das tarefas no [ROADMAP](../../ROADMAP.md) e no [STATE](../../STATE.md). Cada fase cumprida deve ser formalmente registrada em `docs/evidence/` conforme o protocolo de execução.

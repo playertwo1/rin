@@ -71,12 +71,12 @@ de uma URL temporária: registre expiração ou mantenha cópia sanitizada quand
 3. Aplique [AUDIT](../../AI_PROJECT_GUARDRAILS/AUDIT.md) procurando quebrar suas hipóteses.
    Se a revisão for feita pelo próprio implementador, declare autoauditoria; não invente revisor independente.
 4. Registre em `docs/evidence/Fxx-Tyy-AAAA-MM-DD.md` usando o modelo de entrega.
-5. Atualize PROJECT_STATE com ID atual, resultado, bloqueio e próxima ação; CHANGELOG com mudança real.
+5. Atualize STATE com ID atual, resultado, bloqueio e próxima ação; CHANGELOG com mudança real.
 6. Se mudou arquitetura, crie ADR e atualize DECISIONS; proposta não vira “Aceita” por cópia automática.
 7. Para falha relevante: AUDIT RESULT: FAIL, tarefa aberta, correção ou bloqueio concreto.
    Para documentação: PASS restrito à documentação, sem implicar build/app aprovado.
 8. Atualize o cabeçalho de estado e as tarefas no arquivo da fase. Só declare a fase concluída
-   no PROJECT_STATE/ROADMAP quando o gate inteiro estiver comprovado; mantenha links às evidências.
+   no STATE/ROADMAP quando o gate inteiro estiver comprovado; mantenha links às evidências.
 
 ## Controle de mudanças
 
