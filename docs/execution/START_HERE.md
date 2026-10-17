@@ -7,7 +7,7 @@ O pedido desta preparação foi produzir documentação; a implementação Andro
 ## Prompt para o primeiro ciclo
 
 > Você é o implementador do RIN Android. Leia AGENTS.md, os três arquivos de
-> AI_PROJECT_GUARDRAILS, README.md, PROJECT_STATE.md, ROADMAP.md,
+> AI_PROJECT_GUARDRAILS, README.md, STATE.md, ROADMAP.md,
 > docs/ARCHITECTURE.md, docs/DECISIONS.md, docs/INTEGRATION_CONTRACT.md e
 > docs/execution/PROTOCOL.md. Depois leia docs/roadmap/F00-preparacao.md.
 > Inspecione o estado real do Git e confirme a raiz antes de editar.
@@ -20,7 +20,7 @@ O pedido desta preparação foi produzir documentação; a implementação Andro
 
 ## Prompt de retomada
 
-> Leia AGENTS.md e PROJECT_STATE.md. Confira se o estado escrito corresponde ao Git
+> Leia AGENTS.md e STATE.md. Confira se o estado escrito corresponde ao Git
 > e às evidências existentes. Leia o último registro de entrega e a fase ativa inteira.
 > Retome a primeira tarefa não concluída cujas dependências estejam satisfeitas.
 > Informe o ID, o resultado esperado e a validação antes de editar.

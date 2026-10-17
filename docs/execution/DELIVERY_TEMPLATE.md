@@ -40,7 +40,7 @@ Campos não aplicáveis recebem N/A e motivo; campos não verificados recebem N�
 
 ## Continuidade
 
-- PROJECT_STATE e CHANGELOG atualizados:
+- STATE e CHANGELOG atualizados:
 - Gate de fase: aberto / satisfeito, com referência
 - Próximo ID elegível:
 - Bloqueios: evidência, dependência externa, responsável/papel, condição de liberação
