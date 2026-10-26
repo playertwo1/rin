@@ -32,7 +32,7 @@ Liberar somente o artefato que corresponde ao código, aos gates e ao piloto com
 ### F18-T03 — Preparar entrega operacional
 
 - [ ] CONCLUÍDA somente após aceite e evidência.
-- Execução: Preencher docs/releases/1.0.0.md com compatibilidade da AI Workstation, notas, instalação/upgrade, runbook, limitações e checksums. Resolver licença antes de distribuição pública. Atualizar README/PROJECT_STATE/CHANGELOG com fatos da release.
+- Execução: Preencher docs/releases/1.0.0.md com compatibilidade da AI Workstation, notas, instalação/upgrade, runbook, limitações e checksums. Resolver licença antes de distribuição pública. Atualizar README/STATE/CHANGELOG com fatos da release.
 - Entrega: Pacote de release revisável e instruções de recuperação.
 - Aceite verificável: Responsável entende como instalar, atualizar e recuperar; nenhum dado privado ou credencial acompanha pacote.
 
@@ -55,5 +55,5 @@ Documentação pronta, build debug, demo ou piloto incompleto não autorizam rot
 
 ## Registro e próxima fase
 
-Use o [modelo de entrega](../execution/DELIVERY_TEMPLATE.md), aplique AUDIT e atualize PROJECT_STATE/CHANGELOG.
+Use o [modelo de entrega](../execution/DELIVERY_TEMPLATE.md), aplique AUDIT e atualize STATE/CHANGELOG.
 Não marque a fase concluída apenas por escrever os arquivos. A sequência completa está no [roadmap](../../ROADMAP.md).

@@ -55,5 +55,5 @@ Ausência de campo/capability desabilita a função correspondente; não criar v
 
 ## Registro e próxima fase
 
-Use o [modelo de entrega](../execution/DELIVERY_TEMPLATE.md), aplique AUDIT e atualize PROJECT_STATE/CHANGELOG.
+Use o [modelo de entrega](../execution/DELIVERY_TEMPLATE.md), aplique AUDIT e atualize STATE/CHANGELOG.
 Não marque a fase concluída apenas por escrever os arquivos. A sequência completa está no [roadmap](../../ROADMAP.md).

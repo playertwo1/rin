@@ -1,6 +1,34 @@
-# Estado do RIN
+# STATE — ponto de retomada
 
-Atualizado em: 2026-09-13.
+Qualquer agente deve conseguir retomar só com este arquivo + a fase ativa do `ROADMAP.md`, sem a conversa anterior. Curto: o que não for estado atual sai daqui. Este arquivo era o `PROJECT_STATE.md`; o registro original segue abaixo.
+
+**Atualizado:** 2026-10-17 (estado de 2026-09-13) · **Marco ativo:** F05 — Checkpoints, decisões locais e Onde parei · **Estado:** IN_PROGRESS (pausado a pedido do usuário)
+
+## O que funciona hoje (confirmado no código)
+- App Android Compose (`com.playertwo1.rin`, `versionName 0.1.0-alpha`) com Home, Projetos, Workstation e Configurações; Room com projetos, checkpoints, decisões e cache; `FakeWorkstationGateway` determinístico.
+- F00–F04 concluídas e F05-T01 concluída, com evidências em `docs/evidence/`.
+- CI `Android CI` (`lintDebug`, `testDebugUnitTest`, `assembleDebug`): execução `34764944118` no commit `acf91bf` terminou com sucesso em 2026-09-13 12:13 (BRT).
+
+## Última atividade
+- ID / commit: `acf91bf` (2026-09-13) — F00 a F05-T01 com testes, persistência Room e evidências.
+- Resultado real: segundo `docs/evidence/F05-T01-2026-09-13.md`, 45 testes unitários e 18 instrumentados aprovados, lint sem erros.
+- Testes executados: NOT_RUN nesta sessão de padronização (2026-10-17, só documentação; sem Android SDK aqui).
+- Evidência: `docs/evidence/F05-T01-2026-09-13.md`; CI acima.
+
+## Próxima ação
+- F05-T02 — registrar decisões locais ([F05](docs/roadmap/F05-onde-parei.md)), quando Rafael retomar.
+
+## Bloqueios e aprovações humanas
+- Trabalho pausado a pedido do usuário para envio ao GitHub e auditoria do Codex (registro de 2026-09-13).
+- F08 em diante depende da API real da AI Workstation (`docs/planning/EXTERNAL_DEPENDENCIES.md`).
+
+## Divergências entre roadmap e implementação
+- `docs/roadmap/F01-scaffold.md` ainda diz "CI em validação", mas a execução de CI no `acf91bf` passou.
+- A seção "Próximo ciclo" do registro original abaixo descreve o início de F00, já concluído.
+
+---
+
+## Registro original (antigo PROJECT_STATE.md, 2026-09-13)
 
 ## Situação comprovada
 

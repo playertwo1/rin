@@ -1,13 +1,13 @@
 # Roadmap de execução do RIN até 1.0
 
 Plano preparado em 2026-09-13 a partir de toda a documentação local e dos guardrails do Drive.
-**Estado de implementação: não iniciada.** Há 19 fases e 76 tarefas; nenhuma foi marcada como concluída.
+Há 19 fases e 76 tarefas. Quando o plano foi preparado, nenhuma estava concluída. **Estado atual (2026-09-13):** F00–F04 concluídas, F05 em andamento (marco ativo); detalhe em [STATE](STATE.md) e na coluna Estado abaixo.
 Os números do changelog histórico eram revisões documentais, não APKs já publicados.
 
 ## Como usar
 
 Comece em [START_HERE](docs/execution/START_HERE.md) e siga [AGENTS](AGENTS.md).
-Leia o [protocolo](docs/execution/PROTOCOL.md), identifique a fase em PROJECT_STATE e execute
+Leia o [protocolo](docs/execution/PROTOCOL.md), identifique a fase em STATE e execute
 uma tarefa por vez. Cada arquivo de fase contém entrada, passos, entrega, aceite, demonstração,
 gate e bloqueio. “Gate” é a condição verificável para liberar a fase seguinte.
 O detalhamento está nos arquivos vinculados; este índice evita um AGENTS extenso.
@@ -24,30 +24,30 @@ de desenvolvimento. Não existe backend independente RIN Server nesta sequência
 
 ## Fases em ordem
 
-Todas as fases começam em NÃO INICIADA; o estado atual é mantido em PROJECT_STATE.
+Todas as fases começam em NÃO INICIADA; o estado atual é mantido em STATE. A coluna Estado copia a linha `Estado:` de cada arquivo de fase.
 A dependência interna padrão de cada fase é a anterior. Os arquivos detalham os gates externos.
 
-| Fase | Missão detalhada | Prova principal |
-|---|---|---|
-| F00 | [Inventário e decisões de fundação](docs/roadmap/F00-preparacao.md) | Inventário comprovado, toolchain/identidade definidas e setup utilizável. Não exige API real; exige honestidade sobre ausências. |
-| F01 | [Scaffold Android e verificação contínua](docs/roadmap/F01-scaffold.md) | App executado, build/lint/testes locais aprovados e CI com execução comprovada para fechar F01 por completo. |
-| F02 | [Contrato móvel e gateway determinístico](docs/roadmap/F02-contrato-fake.md) | Primeiro caminho vertical Android → fake → lista/detalhe comprovado e contrato candidato verificável. |
-| F03 | [Modelo local e persistência Room](docs/roadmap/F03-persistencia.md) | Projeto, checkpoint e cache persistem; identidades e autoridade dos dados são demonstradas. |
-| F04 | [Home e gestão de projetos locais](docs/roadmap/F04-projetos-locais.md) | Home e CRUD local completos, persistentes e com estados acessíveis. |
-| F05 | [Checkpoints, decisões locais e Onde parei](docs/roadmap/F05-onde-parei.md) | Onde parei reproduzível e rastreável após reinício; projeto local útil diariamente. |
-| F06 | [Exportação aberta e restauração local](docs/roadmap/F06-backup-exportacao.md) | Export/import validado em instalação limpa, sem dados sensíveis e sem reexecução de comandos. |
-| F07 | [Eventos, cursor e offline com simulação](docs/roadmap/F07-sincronizacao-simulada.md) | Replay e persistência resistem a duplicatas, reinício e desconexão em ambiente simulado. |
-| F08 | [Pareamento seguro e cliente real em leitura](docs/roadmap/F08-pareamento.md) | Aparelho pareado com serviço real, TLS/credencial/revogação testados e leitura funcional. |
-| F09 | [Projeto Vivo conectado e fatos verificáveis](docs/roadmap/F09-projeto-conectado.md) | Leitura real e sincronização incremental consistentes, com fonte para os fatos e restart comprovado. |
-| F10 | [Escritas de metadados e conflitos offline](docs/roadmap/F10-escritas-conflitos.md) | Escritas acordadas sincronizam idempotentemente e conflitos preservam dados. Toda limitação por capability fica explícita. |
-| F11 | [Sessões e comandos tipados](docs/roadmap/F11-sessoes.md) | Sessão real inicia/acompanhada e cancelamento tem confirmação operacional. Ações ainda sem aprovação móvel continuam bloqueadas por política. |
-| F12 | [Aprovações vinculadas ao payload](docs/roadmap/F12-aprovacoes.md) | Decisões válidas auditadas; alteração, replay e expiração rejeitados de ponta a ponta. |
-| F13 | [AI Shift e confirmação do destino](docs/roadmap/F13-ai-shift.md) | Handoff validado no fake e entre dois adaptadores reais, com manifesto e aceite do destino rastreáveis. |
-| F14 | [Notificações e operação em segundo plano](docs/roadmap/F14-notificacoes.md) | Notificações relevantes funcionam nas condições verificadas, deduplicam e respeitam privacidade e permissão. |
-| F15 | [Experiência móvel e acessibilidade completas](docs/roadmap/F15-experiencia-acessibilidade.md) | Todos os fluxos previstos são legíveis, navegáveis e acessíveis nos ambientes testados. |
-| F16 | [Resiliência, segurança e candidato ao piloto](docs/roadmap/F16-resiliencia-candidato.md) | Candidato interno assinado, sem falhas relevantes e com atualização/recuperação validadas. |
-| F17 | [Piloto pessoal e duas semanas estáveis](docs/roadmap/F17-piloto.md) | Piloto real atende métricas e duas semanas estáveis; evidências datadas permitem auditoria. |
-| F18 | [Auditoria final e versão 1.0](docs/roadmap/F18-release-1-0.md) | RIN 1.0 distribuído no canal autorizado com artefato verificado, documentação e piloto comprovados. |
+| Fase | Missão detalhada | Prova principal | Estado |
+|---|---|---|---|
+| F00 | [Inventário e decisões de fundação](docs/roadmap/F00-preparacao.md) | Inventário comprovado, toolchain/identidade definidas e setup utilizável. Não exige API real; exige honestidade sobre ausências. | CONCLUÍDA |
+| F01 | [Scaffold Android e verificação contínua](docs/roadmap/F01-scaffold.md) | App executado, build/lint/testes locais aprovados e CI com execução comprovada para fechar F01 por completo. | CONCLUÍDA NO AMBIENTE LOCAL (CI em validação) |
+| F02 | [Contrato móvel e gateway determinístico](docs/roadmap/F02-contrato-fake.md) | Primeiro caminho vertical Android → fake → lista/detalhe comprovado e contrato candidato verificável. | CONCLUÍDA |
+| F03 | [Modelo local e persistência Room](docs/roadmap/F03-persistencia.md) | Projeto, checkpoint e cache persistem; identidades e autoridade dos dados são demonstradas. | CONCLUÍDA |
+| F04 | [Home e gestão de projetos locais](docs/roadmap/F04-projetos-locais.md) | Home e CRUD local completos, persistentes e com estados acessíveis. | CONCLUÍDA |
+| F05 | [Checkpoints, decisões locais e Onde parei](docs/roadmap/F05-onde-parei.md) | Onde parei reproduzível e rastreável após reinício; projeto local útil diariamente. | EM ANDAMENTO |
+| F06 | [Exportação aberta e restauração local](docs/roadmap/F06-backup-exportacao.md) | Export/import validado em instalação limpa, sem dados sensíveis e sem reexecução de comandos. | NÃO INICIADA |
+| F07 | [Eventos, cursor e offline com simulação](docs/roadmap/F07-sincronizacao-simulada.md) | Replay e persistência resistem a duplicatas, reinício e desconexão em ambiente simulado. | NÃO INICIADA |
+| F08 | [Pareamento seguro e cliente real em leitura](docs/roadmap/F08-pareamento.md) | Aparelho pareado com serviço real, TLS/credencial/revogação testados e leitura funcional. | NÃO INICIADA |
+| F09 | [Projeto Vivo conectado e fatos verificáveis](docs/roadmap/F09-projeto-conectado.md) | Leitura real e sincronização incremental consistentes, com fonte para os fatos e restart comprovado. | NÃO INICIADA |
+| F10 | [Escritas de metadados e conflitos offline](docs/roadmap/F10-escritas-conflitos.md) | Escritas acordadas sincronizam idempotentemente e conflitos preservam dados. Toda limitação por capability fica explícita. | NÃO INICIADA |
+| F11 | [Sessões e comandos tipados](docs/roadmap/F11-sessoes.md) | Sessão real inicia/acompanhada e cancelamento tem confirmação operacional. Ações ainda sem aprovação móvel continuam bloqueadas por política. | NÃO INICIADA |
+| F12 | [Aprovações vinculadas ao payload](docs/roadmap/F12-aprovacoes.md) | Decisões válidas auditadas; alteração, replay e expiração rejeitados de ponta a ponta. | NÃO INICIADA |
+| F13 | [AI Shift e confirmação do destino](docs/roadmap/F13-ai-shift.md) | Handoff validado no fake e entre dois adaptadores reais, com manifesto e aceite do destino rastreáveis. | NÃO INICIADA |
+| F14 | [Notificações e operação em segundo plano](docs/roadmap/F14-notificacoes.md) | Notificações relevantes funcionam nas condições verificadas, deduplicam e respeitam privacidade e permissão. | NÃO INICIADA |
+| F15 | [Experiência móvel e acessibilidade completas](docs/roadmap/F15-experiencia-acessibilidade.md) | Todos os fluxos previstos são legíveis, navegáveis e acessíveis nos ambientes testados. | NÃO INICIADA |
+| F16 | [Resiliência, segurança e candidato ao piloto](docs/roadmap/F16-resiliencia-candidato.md) | Candidato interno assinado, sem falhas relevantes e com atualização/recuperação validadas. | NÃO INICIADA |
+| F17 | [Piloto pessoal e duas semanas estáveis](docs/roadmap/F17-piloto.md) | Piloto real atende métricas e duas semanas estáveis; evidências datadas permitem auditoria. | NÃO INICIADA |
+| F18 | [Auditoria final e versão 1.0](docs/roadmap/F18-release-1-0.md) | RIN 1.0 distribuído no canal autorizado com artefato verificado, documentação e piloto comprovados. | NÃO INICIADA |
 
 ## Marcos de produto
 

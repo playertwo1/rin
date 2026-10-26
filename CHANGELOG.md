@@ -4,7 +4,9 @@ Todas as mudanças relevantes do RIN serão registradas neste arquivo.
 
 As entradas 0.1.0 e 0.2.0 abaixo versionam a documentação histórica; não comprovam versões de APK.
 
-## Não lançado — 2026-09-13
+Cabeçalhos no formato `## X.Y.Z — AAAA-MM-DD` (ideias_standard). A entrada 0.3.0 era "Não lançado — 2026-09-13"; o número foi atribuído na padronização (2026-10-17) seguindo a sequência existente. O APK declara `versionName 0.1.0-alpha` e não há tags.
+
+## 0.3.0 — 2026-09-13
 
 ### Adicionado
 
